@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitsmart Dashboard</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .header-buttons button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar Styles */
+        nav.sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav.sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav.sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        nav.sidebar ul li:hover {
+            background-color: #34495e;
+        }
+
+        nav.sidebar ul li > ul {
+            display: none;
+            padding-left: 20px;
+        }
+
+        nav.sidebar ul li.active > ul {
+            display: block;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            overflow-y: auto;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            flex-basis: 30%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Bitsmart</div>
+        <div class="header-buttons">
+            <button id="adminBtn">Admin</button>
+            <button>Signup</button>
+            <button>Login</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="menu-item" id="user-management">
+                    User Management
+                    <ul>
+                        <li>User Profile</li>
+                        <li>User Activities</li>
+                        <li>User Roles & Responsibilities</li>
+                    </ul>
+                </li>
+                <li class="menu-item" id="financial-features">
+                    Financial Features
+                    <ul>
+                        <li>Saving Features</li>
+                        <li>Budgeting Tools</li>
+                        <li>Investment Education</li>
+                    </ul>
+                </li>
+                <li class="menu-item" id="analytics-reports">
+                    Analytics & Reports
+                    <ul>
+                        <li>Financial Report</li>
+                        <li>User Analytics</li>
+                    </ul>
+                </li>
+                <li class="menu-item" id="content-management">
+                    Content Management
+                    <ul>
+                        <li>Resource Library</li>
+                        <li>Education</li>
+                    </ul>
+                </li>
+                <li class="menu-item" id="support-feedback">
+                    Support & Feedback
+                    <ul>
+                        <li>User Support</li>
+                        <li>Feedback & Suggestions</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="card">User Management</div>
+            <div class="card">Financial Features</div>
+            <div class="card">Analytics & Reports</div>
+            <div class="card">Content Management</div>
+            <div class="card">Support & Feedback</div>
+        </main>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
