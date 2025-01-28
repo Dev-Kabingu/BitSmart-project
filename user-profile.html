@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Bitsmart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }     
+      header {
+        padding: 20px;
+        background-color: #070F4D;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      header .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+      }
+
+      .user-profile {
+        margin: 50px auto;
+        width: 400px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .profile-card {
+        margin-top: 20px;
+      }
+
+      .profile-card p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .profile-card button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .profile-card button:hover {
+        background-color: #2980b9;
+      }
+
+      .link-to-dashboard {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #2980b9;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .link-to-dashboard:hover {
+        background-color: #21618c;
+      }
+      footer{
+        background-color: #070F4D;
+        color: wheat;
+        text-align: center;
+        padding: 12px 0;
+      }
+
+ 
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Bitsmart</div>
+      <a href="main-dashboard.html" class="link-to-dashboard">Go to Dashboard</a>
+    </header>
+
+    <section class="user-profile">
+      <h2>Your Profile</h2>
+      <div class="profile-card">
+        <p><span id="username"></span></p>
+        <p><span id="email"></span></p>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Bitsmart. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function logout() {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("currentUser");
+        window.location.href = "register.html";
+      }
+    </script>
+
+    <script src="./register.js"></script>
+  </body>
+</html>

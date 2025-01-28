@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitsmart Dashboard</title>
     <style>
-        /* Global Styles */
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -17,10 +17,12 @@
         }
 
         header {
-            background-color: #333;
+            background-color: #070F4D;
             color: white;
             padding: 1em;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         header .logo {
@@ -30,7 +32,7 @@
 
         .header-buttons button {
             margin-left: 10px;
-            padding: 5px 10px;
+            padding: 8px 10px;
             background-color: #3498db;
             color: white;
             border: none;
@@ -42,11 +44,9 @@
             flex: 1;
             overflow: hidden;
         }
-
-        /* Sidebar Styles */
         nav.sidebar {
             width: 250px;
-            background-color: #2c3e50;
+            background-color: #0a124f;
             color: white;
             padding: 20px;
             box-sizing: border-box;
@@ -65,7 +65,7 @@
         }
 
         nav.sidebar ul li:hover {
-            background-color: #34495e;
+            background-color: #070F4D;
         }
 
         nav.sidebar ul li > ul {
@@ -76,8 +76,6 @@
         nav.sidebar ul li.active > ul {
             display: block;
         }
-
-        /* Main Content Styles */
         .main-content {
             flex: 1;
             padding: 20px;
@@ -90,10 +88,13 @@
             background-color: white;
             padding: 20px;
             margin: 10px;
-            flex-basis: 30%;
-            box-sizing: border-box;
+            width: 200px;
+            height: 150px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card:hover {
@@ -106,14 +107,14 @@
     <header class="header">
         <div class="logo">Bitsmart</div>
         <div class="header-buttons">
-            <button id="adminBtn">Admin</button>
-            <button>Signup</button>
-            <button>Login</button>
+            <button onclick="window.location.href = 'admin-login.html' ">Admin</button>
+            <button  onclick="logout()">Logout</button>
         </div>
     </header>
     
     <div class="container">
         <nav class="sidebar">
+            <h1>Dashboard</h1>
             <ul>
                 <li class="menu-item" id="user-management">
                     User Management
@@ -170,6 +171,11 @@
                 item.classList.toggle('active');
             });
         });
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'register.html';
+        }
     </script>
 </body>
 </html>
